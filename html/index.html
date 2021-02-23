@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/index.css">
+    <title>Morse Code Encoder</title>
+</head>
+<body>
+    <div class="header">
+        <h1 class="header__text" >Morse-Code Encoder and Decoder</h1>
+    </div>
+    <form>
+        <div class = "container container__input">
+            <div>
+                <label class="container__label" for="encode" >Encoder</label> 
+            </div>
+            <textarea class="container__text-box container__text-box--center container__text-box--encode " id="encodeInput" name="encode" rows="20" cols="100" placeholder="Please Enter Text to Encode to Morse-Code"></textarea>
+        </div>
+        <div class = "container">
+            <button class="btn btn__encode btn__encode--color " type="button" id = "encodeBtn" value="encode">Encode</button>
+            <button class=" btn  btn__decode btn__decode--color" type="button" id = "decodeBtn"  value="decode">Decode</button>
+        </div>
+        <div class = "container container__input">
+            <div>
+                <label class="container__label" for="decodee">Decoder</label>
+            </div>
+            <textarea class = "container__text-box container__text-box--center container__text-box--decode" id="decodeInput" name="decode" rows="20" cols="100" placeholder="Please Enter Text to Decode from Morse-Code"></textarea>
+        </div>     
+    </form>
+    <script src = "../js/index.js"></script>
+</body>
+</html>
