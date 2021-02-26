@@ -5,37 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/btn.css">
+    <link rel="stylesheet" href="../css/container.css">
 
     <title>Morse Code Encoder</title>
 </head>
 <body>
-    <div class="header">
-        <h1 class="header__text" >Morse-Code Encoder and Decoder</h1>
+    <div class="border">
+        <div>
+            <h1 class="text text__header" >Morse-Code Encoder and Decoder</h1>
+        </div>
+        <div class ="text text__info">
+            <p>Instructions : Enter you English in the Encoder or Morse Code in the Decode and hit the button.</p>
+            <p>In this morse code three spaces "___" means it is a new letter, an "/" means it is a new word.</p>
+            <p>Valid Characters are (0-9), (a-z), (! . , )</p>
+            <h3>HAVE FUN!!</h3>
+        </div>
+        <form>
+            <div class = "container container__input">
+                <div>
+                    <label class="container__label" for="encode" >Encoder</label> 
+                </div>
+                <textarea class="container__text-box container__text-box--center container__text-box--encode " id="encodeInput" name="encode" rows="20" cols="100" placeholder="Please Enter Text to Encode to Morse-Code"></textarea>
+            </div>
+            <div class = "container">
+                <button class="btn btn__encode btn__encode--color " type="button" id = "encodeBtn" value="encode">Encode</button>
+                <button class=" btn  btn__decode btn__decode--color" type="button" id = "decodeBtn"  value="decode">Decode</button>
+            </div>
+            <div class = "container container__input">
+                <div>
+                    <label class="container__label" for="decodee">Decoder</label>
+                </div>
+                <textarea class = "container__text-box container__text-box--center container__text-box--decode" id="decodeInput" name="decode" rows="20" cols="100" placeholder="Please Enter Text to Decode from Morse-Code"></textarea>
+            </div>     
+        </form>
+        <script type="module" src = "../js/index.js"></script>
+        <script type="module" src="../js/morsecode.js"></script>
     </div>
-    <!-- <div>
-        <p>Instructions : Enter you English in the Encoder or Morse Code in the Decode and hit the button.</p>
-        <p>In this morse code three spaces "___" means it is a new letter, a "/" means it is a new word.</p>
-        <h3>HAVE FUN!!</h3>
-    </div> -->
-    <form>
-        <div class = "container container__input">
-            <div>
-                <label class="container__label" for="encode" >Encoder</label> 
-            </div>
-            <textarea class="container__text-box container__text-box--center container__text-box--encode " id="encodeInput" name="encode" rows="20" cols="100" placeholder="Please Enter Text to Encode to Morse-Code"></textarea>
-        </div>
-        <div class = "container">
-            <button class="btn btn__encode btn__encode--color " type="button" id = "encodeBtn" value="encode">Encode</button>
-            <button class=" btn  btn__decode btn__decode--color" type="button" id = "decodeBtn"  value="decode">Decode</button>
-        </div>
-        <div class = "container container__input">
-            <div>
-                <label class="container__label" for="decodee">Decoder</label>
-            </div>
-            <textarea class = "container__text-box container__text-box--center container__text-box--decode" id="decodeInput" name="decode" rows="20" cols="100" placeholder="Please Enter Text to Decode from Morse-Code"></textarea>
-        </div>     
-    </form>
-    <script src = "../js/index.js"></script>
-    <!-- <script type="module" src="../js/morsecode.js"></script> -->
 </body>
 </html>

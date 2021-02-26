@@ -1,0 +1,29 @@
+.container {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.container__input {
+  flex-direction: column;
+}
+.container__label {
+  font-size: xx-large;
+}
+.container__text-box--center {
+  margin-top: 20px;
+  border-radius: 10px;
+}
+.container__text-box--encode {
+  background-color: #8caa8c;
+}
+.container__text-box--decode {
+  background-color: #a56e6e;
+}
+.container__text-box::placeholder {
+  color: black;
+  opacity: 0.75;
+  padding-top: 100px;
+  text-align: center;
+}

@@ -1,0 +1,38 @@
+.container{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+    &__input{
+        flex-direction: column;
+    }
+
+    &__label{
+        font-size: xx-large;
+    }
+
+    &__text-box{
+
+        &--center{
+           margin-top: 20px;
+           border-radius: 10px;
+        }
+
+        &--encode{
+            background-color: rgb(140, 170, 140);
+        }
+
+        &--decode{
+            background-color: rgb(165, 110, 110);
+        }
+        
+        &::placeholder{
+            color: black;
+            opacity: 0.75; 
+            padding-top: 100px;
+            text-align: center; 
+        }
+    }
+}

@@ -1,88 +1,35 @@
-.header{
-    &__text{
-        text-align: center;
-        border-bottom: 5px dotted black;
-        margin-left: 500px;
-        margin-right: 500px;
+.text{
+    text-align: center;
+    padding-bottom: 10px;
+    color: #F29472;
+
+    &__header{
+        border-bottom: 5px dotted #592918;
+        margin-left: 100px;
+        margin-right: 100px;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color:  #40303C;
+    }
+
+    &__info{
+        margin: 50px;
+        color:#40303C;
+        margin-right: 350px;
     }
 }
-
-
-
-.container{
-    text-align: center;
+body {
+    background-color: #F2CFBB;
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 30px;
-
-    &__input{
-        flex-direction: column;
-    }
-    &__label{
-        font-size: xx-large;
-    }
-    &__text-box{
-        &--center{
-           margin-top: 20px;
-           border-radius: 10px;
-        }
-        &--encode{
-            background-color: rgb(140, 170, 140);
-        }
-        &--decode{
-            background-color: rgb(170, 140, 140);
-        }
-        &::placeholder{
-            color: black;
-            opacity: 0.75; 
-            padding-top: 100px;
-            text-align: center; 
-        }
-    }
 }
 
-
-.btn{
-    background-color: white;
-    color: black;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 30px;
-    margin-left: 50px;
-    margin-right: 50px;
-    cursor: pointer;
-    outline: none;
-    border-radius: 15px;
-    box-shadow: 0 9px #999;
-
-    &:active {
-        box-shadow: 0 5px #666;
-        transform: translateY(4px);
-      }
-
-    &__encode{
-        &--color{
-            border: 2px solid green;
-
-            &:active{
-                background-color: green;
-                color: white; 
-            }
-          }
-    }
-
-    &__decode{
-        &--color{
-            border: 2px solid red;
-
-            &:active {
-                background-color: red;
-                color: white; 
-              }
-        }
-    }
-
+.border{
+    width:80%;
+    margin: 50px;
+    border-radius: 10px;
+    box-shadow:10px 10px 10px 1px rgb(174, 22, 22), 15px 15px 15px 1px green inset;
+    background-image: url(../pics/AdobeStock_43248127.jpeg);
+    background-position: center;
+    background-size: cover;
+    padding: 50px;
 }

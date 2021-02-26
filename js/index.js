@@ -1,118 +1,43 @@
-// import {alphabet, morse} from '/morsecode.js'
+import {alphabet, morse} from './morsecode.js'
 
 
-//incorrect character check
 //user can enter delim
-const alphabet = {  
-  "0":"-----",
-  "1":".----",
-  "2":"..---",
-  "3":"...--",
-  "4":"....-",
-  "5":".....",
-  "6":"-....",
-  "7":"--...",
-  "8":"---..",
-  "9":"----.",
-  "a":".-",
-  "b":"-...",
-  "c":"-.-.",
-  "d":"-..",
-  "e":" .",
-  "f":"..-.",
-  "g":"--.",
-  "h":"....",
-  "i":"..",
-  "j":".---",
-  "k":"-.-",
-  "l":".-..",
-  "m":"--",
-  "n":"-.",
-  "o":"---",
-  "p":".--.",
-  "q":"--.-",
-  "r":".-.",
-  "s":"...",
-  "t":"-",
-  "u":"..-",
-  "v":"...-",
-  "w":".--",
-  "x":"-..-",
-  "y":"-.--",
-  "z":"--..",
-  " ":"/",
-  "!":"-·-·--",
-  ".":"·-·-·-",
-  ",":"--··--"
-};
 
 const encodeInputText = () => {
-  let encodeInput = document.getElementById("encodeInput").value.toLowerCase().split("");
-  let alphabetKeys = Object.keys(alphabet);
-  for(let i = 0; i <= encodeInput.length; i++){
-      for (let j = 0; j < alphabetKeys.length; j++) {
-          if ( encodeInput[i] === alphabetKeys[j]){
-            encodeInput[i] = alphabet[Object.keys(alphabet)[j]];
-          }
-      }
-  }
-  document.getElementById("encodeInput").value = encodeInput.join("  ");
-}
 
-const morse = {
-  "-----": "0",
-  ".----": "1",
-  "..---": "2",
-  "...--": "3",
-  "....-": "4",
-  ".....": "5",
-  "-....": "6",
-  "--...": "7",
-  "---..": "8",
-  "----.": "9",
-  ".-": "a",
-  "-...": "b",
-  "-.-.": "c",
-  "-..": "d",
-  " .": "e",
-  "..-.": "f",
-  "--.": "g",
-  "....": "h",
-  "..": "i",
-  ".---": "j",
-  "-.-": "k",
-  ".-..": "l",
-  "--": "m",
-  "-.": "n",
-  "---": "o",
-  ".--.": "p",
-  "--.-": "q",
-  ".-.": "r",
-  "...": "s",
-  "-": "t",
-  "..-": "u",
-  "...-": "v",
-  ".--": "w",
-  "-..-": "x",
-  "-.--": "y",
-  "--..": "z",
-  "/": " ",
-  "-·-·--": "!",
-  "·-·-·-": ".",
-  "--··--": ",",
-};
+    let encodeInput = document.getElementById("encodeInput").value.toLowerCase().split("");
+    document.getElementById("encodeInput").value = letterKeys(encodeInput, alphabet).join("  ");
+}
   
 const decodeInputText = () => {
-  let decodeInput = document.getElementById("decodeInput").value.split("  ");
-  let morseKeys = Object.keys(morse);
-  for(let i = 0; i <= decodeInput.length; i++){
-      for (let j = 0; j < morseKeys.length; j++) {
-          if ( decodeInput[i] === morseKeys[j]){
-              decodeInput[i] = morse[Object.keys(morse)[j]];
-          }
-      }
-  }
-  document.getElementById("decodeInput").value = decodeInput.join("");
+
+    let decodeInput = document.getElementById("decodeInput").value.split("  ");
+    document.getElementById("decodeInput").value = letterKeys(decodeInput, morse).join("");
+}
+
+
+// This function takes in an array of letters and an object
+// Turns the object it into an array of object keys
+// Goes through every letter in the array of letters
+// Compares each letter to every key in the array of object keys
+// If matched the letter becomes the matching key's value
+// Returns new array of letters
+const letterKeys = (arrOfLetters, object) => {
+    let objectKeys = Object.keys(object);
+    
+    for(let i = 0; i <= arrOfLetters.length; i++){
+
+        for (let j = 0; j < objectKeys.length; j++) {
+
+            if ( arrOfLetters[i] ===objectKeys[j]){
+                arrOfLetters[i] = object[Object.keys(object)[j]];
+            }else{
+                alert("Please only enter valid characters");
+                return [];
+            }
+        }
+    }
+    return arrOfLetters;
 }
 
  
@@ -122,11 +47,10 @@ const ready = () => {
 
     encodeBtn.addEventListener("click", encodeInputText);
     decodeBtn.addEventListener("click", decodeInputText);
-  }
+    }
 
-  if(document.readyState == 'loading'){
+if(document.readyState == 'loading'){   
     document.addEventListener('DOMContentLoaded', ready);
-  }else{
+}else{
     ready();
-  }
- 
+}
