@@ -1,56 +1,46 @@
-import {alphabet, morse} from './morsecode.js'
-
+import { alphabet, morse } from './morsecode.js';
 
 //user can enter delim
 
+const letterCheck = (arrOfLetters, codeObject) => {
+    if (arrOfLetters.length === 0) {
+        return false;
+    }
+
+    return arrOfLetters.every((letter) => codeObject.hasOwnProperty(letter));
+}
+
+const translate = (codeString, codeObject, splitDelim, joinDelim) => {
+    if (typeof codeString !== 'string' || typeof codeObject !== 'object') {
+        return [];
+    }
+
+    const arrOfLetters = codeString.toLowerCase().split(splitDelim);
+    if (letterCheck(arrOfLetters, codeObject) === false) {
+        alert('Please Enter Valid Characters');
+        return [];
+    }
+
+    return arrOfLetters.map((key) => codeObject[key]).join(joinDelim);
+}
+
 const encodeInputText = () => {
-
-    let encodeInput = document.getElementById("encodeInput").value.toLowerCase().split("");
-    document.getElementById("encodeInput").value = letterKeys(encodeInput, alphabet).join("  ");
+    const encodeInput = document.getElementById("encodeInput");
+    encodeInput.value = translate(encodeInput.value, alphabet, "", "   ");
 }
-  
+
 const decodeInputText = () => {
-
-    let decodeInput = document.getElementById("decodeInput").value.split("  ");
-    document.getElementById("decodeInput").value = letterKeys(decodeInput, morse).join("");
+    const decodeInput = document.getElementById("decodeInput");
+    decodeInput.value = translate(decodeInput.value, morse, "   ", "");
 }
 
+const encodeBtn = document.getElementById("encodeBtn");
+const decodeBtn = document.getElementById("decodeBtn");
 
-// This function takes in an array of letters and an object
-// Turns the object it into an array of object keys
-// Goes through every letter in the array of letters
-// Compares each letter to every key in the array of object keys
-// If matched the letter becomes the matching key's value
-// Returns new array of letters
-const letterKeys = (arrOfLetters, object) => {
-    let objectKeys = Object.keys(object);
-    
-    for(let i = 0; i <= arrOfLetters.length; i++){
+encodeBtn.addEventListener("click", encodeInputText);
+decodeBtn.addEventListener("click", decodeInputText);
 
-        for (let j = 0; j < objectKeys.length; j++) {
-
-            if ( arrOfLetters[i] ===objectKeys[j]){
-                arrOfLetters[i] = object[Object.keys(object)[j]];
-            }else{
-                alert("Please only enter valid characters");
-                return [];
-            }
-        }
-    }
-    return arrOfLetters;
-}
-
- 
-const ready = () => {
-    let encodeBtn = document.getElementById("encodeBtn");
-    let decodeBtn = document.getElementById("decodeBtn");
-
-    encodeBtn.addEventListener("click", encodeInputText);
-    decodeBtn.addEventListener("click", decodeInputText);
-    }
-
-if(document.readyState == 'loading'){   
-    document.addEventListener('DOMContentLoaded', ready);
-}else{
-    ready();
-}
+export {
+    letterCheck,
+    translate
+};
